@@ -1,1 +1,2 @@
-cout<<head->data;
+
+        back=back1;
