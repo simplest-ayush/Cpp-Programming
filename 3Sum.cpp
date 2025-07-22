@@ -37,7 +37,10 @@ int main(){
         cin>>a;
         arr.push_back(a);
     }
-    cout<<"Triplets having sum 0 are : ";
-    findTriplets(arr,n);
+    cout<<"Triplets having sum 0 are : "<<'\n';
+    vector<vector<int>> ans=findTriplets(arr, n);
+    for(int i=0; i<n; i++){
+        cout<<ans[i]<<"";
+    }
     return 0;
 }

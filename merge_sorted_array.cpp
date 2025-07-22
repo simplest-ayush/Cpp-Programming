@@ -1,48 +1,36 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void merge(int arr1[],int n,int arr2[],int m,int arr3[]){
-    int i=0;
-    int j=0;
-    int k=0;
-    while(i<n && j<m){
-        if(arr1[i]<arr2[j]){
-            arr3[k]=arr1[i];
-            k++;
-            i++;
+void mergeSortedArray(vector<int> &arr1, int n, vector<int> &arr2, int m){
+    int i=n-1;
+    int j=m-1;
+    int k=n+m-1;
+    while(i>=0 && j>=0){
+        if(arr1[i]>arr2[j]){
+            arr1[k]=arr1[i];
+            i--;
+            k--;
         }
         else{
-            arr3[k]=arr2[j];
-            k++;
-            j++;
+            arr1[k]=arr2[j];
+            j--;
+            k--;
         }
     }
-    while(i<n){
-        arr3[k]=arr1[i];
-        k++;
-        i++;
+    while(j>=0){
+        arr1[k]=arr2[j];
+        j--;
+        k--;
     }
-    while(j<m){
-        arr3[k]=arr2[j];
-        k++;
-        j++;
-    }
-}
-
-void print(int arr3[],int n){
-    for(int i=0;i<n;i++){
-        cout<<arr3[i]<<" ";
-    }
-    cout<<endl;
 }
 
 int main(){
-    int arr1[5]={1, 45, 87, 456, 9845};
-    int arr2[4]={12,54,984,999};
-    int arr3[9]={0}; 
-
-    merge(arr1,5,arr2,4,arr3);
-
-    print(arr3,9);
+    vector<int> arr1={4, 5, 6, 0, 0, 0};
+    vector<int> arr2={1, 2, 3};
+    cout<<"Arrays after merging are : "<<'\n';
+    mergeSortedArray(arr1, 3, arr2, 3);
+    for(int i=0; i<arr1.size(); i++){
+        cout<<arr1[i]<<" ";
+    }
     return 0;
 }

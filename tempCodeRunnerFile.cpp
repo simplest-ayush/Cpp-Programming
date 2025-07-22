@@ -1,2 +1,1 @@
-
-        back=back1;
+(min(height[left], height[right]))

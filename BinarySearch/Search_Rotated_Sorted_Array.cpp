@@ -46,7 +46,7 @@ int main(){
     cout<<"Enter element to be searched : ";
     cin>>target;
     int pivot=getPivot(arr,n);
-    if(target>=arr[pivot] && target<arr[n-1]){
+    if(target>=arr[pivot] && target<=arr[n-1]){
         cout<<binarySearch(arr,pivot,n-1,target);
     }
     else{
